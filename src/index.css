@@ -48,3 +48,8 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+::selection {
+  color: rgb(255, 255, 255);
+  background: #b86303;
+}
