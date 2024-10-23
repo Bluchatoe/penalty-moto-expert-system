@@ -452,7 +452,7 @@ export const sectionsList = [
     ),
   },
   {
-    id: "section21",
+    id: "section22",
     title: "Effectivity",
     body: (
       <p>

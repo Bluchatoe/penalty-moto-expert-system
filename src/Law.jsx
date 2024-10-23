@@ -117,7 +117,7 @@ function HeroSection() {
             </div>
 
             <div className="flex gap-3 items-end">
-              <span className="font-bold text-6xl">21</span>
+              <span className="font-bold text-6xl">22</span>
 
               <div className="flex flex-col">
                 <p className="text-xs mb-[-2px] text-stone-400">
@@ -301,7 +301,7 @@ function Sections() {
 }
 
 function SectionNav() {
-  const sections = Array.from({ length: 21 }, (_, index) => index + 1);
+  const sections = Array.from({ length: 22 }, (_, index) => index + 1);
 
   return (
     <aside className="w-full max-w-64 sticky top-10">
