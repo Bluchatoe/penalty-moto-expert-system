@@ -9,3 +9,42 @@
 
   font-family: "Lora", "Poppins", sans-serif;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fde68a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b4530998;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar-button {
+  width: 20px; /* Adjust width */
+  height: 20px; /* Adjust height */
+}
+
+/* Add up icon */
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 14l5-5 5 5H7z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Add down icon */
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5H7z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,6 +1,16 @@
+import { useEffect } from "react";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
+
 export default function Law() {
   return (
-    <div className="w-full h-full max-h-full overflow-y-auto">
+    <div className="w-full h-screen max-h-screen overflow-y-auto relative">
       <div className="max-w-7xl  mx-auto flex flex-col py-8 gap-4">
         <HeroSection />
         <Sections />
@@ -114,22 +124,80 @@ function HeroSection() {
           </div>
 
           {/* Approval Timeline */}
-          <div className="bg-stone-700 px-4 py-3 flex flex-col justify-between">
+          <div className="bg-stone-700 px-4 py-3 flex flex-col ">
             <div>
               <p className="text-sm text-stone-200">Approval Timeline</p>
             </div>
 
-            <div className="flex gap-3 items-end">
+            <div className="mt-auto flex gap-3 items-center">
               <div className="flex flex-col">
                 <p className="text-xs mb-[-2px] text-stone-400">
-                  Total Number of{" "}
+                  Passed by Senate
                 </p>
-                <p className="text-2xl">Sections</p>
+                <p className="text-lg">December 13, 2018</p>
+              </div>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+              <div className="flex flex-col">
+                <p className="text-xs mb-[-2px] text-stone-400">
+                  Passed by House:
+                </p>
+                <p className="text-lg">January 14, 2019</p>
+              </div>
+            </div>
+
+            <div className="mt-2">
+              <div className="flex flex-col">
+                <p className="text-sm mb-[-2px] text-stone-400">Approved</p>
+                <p className="text-xl">March 8, 2019</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-stone-800">Grid 3</div>
+          {/* Key Person */}
+
+          <div className="bg-stone-800 px-4 py-3 flex flex-col ">
+            <div>
+              <p className="text-sm text-stone-200">Key Signatories</p>
+            </div>
+
+            <div className="mt-6 flex flex-col gap-2">
+              <div className="flex flex-col">
+                <p className="text-xs mb-[-2px] text-stone-400">
+                  Speaker of the House
+                </p>
+                <p className="text-lg">Gloria Macapagal-Arroyo</p>
+              </div>
+
+              <div className="flex flex-col">
+                <p className="text-xs mb-[-2px] text-stone-400">
+                  President of the Senate
+                </p>
+                <p className="text-lg">Vicente C. Sotto III</p>
+              </div>
+
+              <div className="flex flex-col">
+                <p className="text-sm mb-[-2px] text-stone-400">
+                  President of the Philippines
+                </p>
+                <p className="text-xl">Rodrigo Roa Duterte</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -137,5 +205,96 @@ function HeroSection() {
 }
 
 function Sections() {
-  return <div>Section here</div>;
+  useEffect(() => {
+    // Registering the 'begin' event and logging it to the console when triggered.
+    Events.scrollEvent.register("begin", (to, element) => {
+      console.log("begin", to, element);
+    });
+
+    // Registering the 'end' event and logging it to the console when triggered.
+    Events.scrollEvent.register("end", (to, element) => {
+      console.log("end", to, element);
+    });
+
+    // Updating scrollSpy when the component mounts.
+    scrollSpy.update();
+
+    // Returning a cleanup function to remove the registered events when the component unmounts.
+    return () => {
+      Events.scrollEvent.remove("begin");
+      Events.scrollEvent.remove("end");
+    };
+  }, []);
+
+  // Function to handle the activation of a link.
+  const handleSetActive = (to) => {
+    console.log(to);
+  };
+
+  return (
+    <div className="flex flex-col pb-36">
+      {/* Line */}
+      <div className="w-full max-h-1 my-10">
+        <img
+          src="/src/assets/royal-line-gold.png"
+          alt=""
+          className="mx-auto h-16 opacity-40"
+        />
+      </div>
+
+      <h2 className="text-center mt-10 text-5xl">Sections</h2>
+      <p className="text-center mt-2 text-lg text-stone-400">
+        Be it enacted by the Senate and House of Representatives of the
+        Philippine Congress Assembled:
+      </p>
+
+      <div className="flex items-start p-8">
+        {/* Section List container */}
+        <aside className="w-full max-w-64 sticky top-9">
+          <p className="mb-4">Section list</p>
+          <nav className="flex flex-col gap-2">
+            <ul
+              onClick={(e) => {
+                e.preventDefault();
+                const target = e.target;
+                const id = target.getAttribute("href").replace("#", "");
+                const element = document.getElementById(id);
+                element.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              <li>
+                <a href="#section1">Section 1</a>
+              </li>
+              <li>
+                <a href="#section2">Section 2</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        {/* Sections */}
+        <div className="w-full flex flex-col">
+          {/* Section 1 */}
+          <div
+            id="section1"
+            className="element"
+            style={{ height: "100vh", backgroundColor: "transparent" }}
+          >
+            <h2>Section 1</h2>
+            <p>Content of Section 1</p>
+          </div>
+
+          {/* Section 2 */}
+          <div
+            id="section2"
+            className="element"
+            style={{ height: "100vh", backgroundColor: "transparent" }}
+          >
+            <h2>Section 2</h2>
+            <p>Content of Section 2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
