@@ -1,9 +1,24 @@
+import { sectionsList } from "./sections";
+
 export default function Law() {
   return (
-    <div className="w-full h-screen max-h-screen overflow-y-auto relative">
+    <div className="w-full h-full max-h-full overflow-y-auto relative">
       <div className="max-w-7xl  mx-auto flex flex-col py-8 gap-4">
         <HeroSection />
         <Sections />
+      </div>
+
+      <div className="w-full bg-amber-950">
+        <div className="max-w-7xl mx-auto p-4 flex items-center justify-between">
+          <p>Source | The LAWPHiL Project</p>
+          <a
+            href="https://lawphil.net/statutes/repacts/ra2019/ra_11235_2019.html"
+            className="text-sm text-stone-300 hover:text-amber-500"
+            target="_blank"
+          >
+            https://lawphil.net/statutes/repacts/ra2019/ra_11235_2019.html
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -196,7 +211,7 @@ function HeroSection() {
 
 function Sections() {
   return (
-    <div className="flex flex-col pb-36">
+    <div className="flex flex-col max-h-full max-w-5xl mx-auto">
       {/* Line */}
       <div className="w-full max-h-1 my-10">
         <img
@@ -214,51 +229,121 @@ function Sections() {
 
       <div className="flex items-start p-8">
         {/* Section List container */}
-        <aside className="w-full max-w-64 sticky top-9">
-          <p className="mb-4">Section list</p>
-          <nav className="flex flex-col gap-2">
-            <ul
-              onClick={(e) => {
-                e.preventDefault();
-                const target = e.target;
-                const id = target.getAttribute("href").replace("#", "");
-                const element = document.getElementById(id);
-                element.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              <li>
-                <a href="#section1">Section 1</a>
-              </li>
-              <li>
-                <a href="#section2">Section 2</a>
-              </li>
-            </ul>
-          </nav>
-        </aside>
+        <SectionNav />
 
         {/* Sections */}
         <div className="w-full flex flex-col">
-          {/* Section 1 */}
-          <div
-            id="section1"
-            className="element"
-            style={{ height: "100vh", backgroundColor: "transparent" }}
-          >
-            <h2>Section 1</h2>
-            <p>Content of Section 1</p>
+          {sectionsList.map((s, i) => {
+            return (
+              <SectionBody
+                key={s.id}
+                sectionId={s.id}
+                sectionNo={i + 1}
+                title={s.title}
+                body={s.body}
+              />
+            );
+          })}
+        </div>
+      </div>
+      <div className="h-[0.5px] bg-amber-100/30 w-full"></div>
+
+      {/* Footer */}
+      <div className="flex flex-col gap-9 pb-20">
+        <p className="mt-6">Approved,</p>
+
+        <div className="flex flex-wrap gap-8 items-start">
+          <div>
+            <h3 className="font-bold">GLORIA MACAPAGAL-ARROYO</h3>
+            <p className="text-sm text-stone-400">
+              Speaker of the House of Representatives
+            </p>
           </div>
 
-          {/* Section 2 */}
-          <div
-            id="section2"
-            className="element"
-            style={{ height: "100vh", backgroundColor: "transparent" }}
-          >
-            <h2>Section 2</h2>
-            <p>Content of Section 2</p>
+          <div>
+            <h3 className="font-bold">VICENTE C. SOTTO III</h3>
+            <p className="text-sm text-stone-400">President of the Senate</p>
           </div>
+        </div>
+
+        <p>
+          This Act which is a consolidation of Senate Bill No. 1397 and House
+          Bill No. 8419 was passed by the Senate and the House of
+          Representatives on December 13, 2018 and January 14, 2019,
+          respectively.
+        </p>
+
+        <div className="flex flex-wrap gap-8 items-start">
+          <div>
+            <h3 className="font-bold">DANTE ROBERTO P. MALING</h3>
+            <p className="text-sm text-stone-400">
+              Acting Secretary General <br /> House of Representatives
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold">MYRA MARIE D. VILLARICA</h3>
+            <p className="text-sm text-stone-400">Secretary of the Senate</p>
+          </div>
+        </div>
+
+        <p>Approved: March 8, 2019</p>
+
+        <div>
+          <h3 className="font-bold">
+            <span className="font-normal">(Sgd.)</span> RODRIGO ROA DUTERTE
+          </h3>
+          <p className="text-sm text-stone-400">President of the Philippines</p>
         </div>
       </div>
     </div>
   );
 }
+
+function SectionNav() {
+  const sections = Array.from({ length: 21 }, (_, index) => index + 1);
+
+  return (
+    <aside className="w-full max-w-64 sticky top-10">
+      <p className="mb-4 text-lg font-medium">Section list</p>
+      <nav className="">
+        <ul
+          className="flex flex-col gap-1"
+          onClick={(e) => {
+            e.preventDefault();
+            const target = e.target;
+            const id = target.getAttribute("href").replace("#", "");
+            const element = document.getElementById(id);
+            element.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
+        >
+          {sections.map((num) => (
+            <li key={num}>
+              <a
+                href={`#section${num}`}
+                className="text-stone-400 hover:text-amber-400"
+              >
+                Section {num}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  );
+}
+
+function SectionBody({ sectionId, sectionNo, title, body }) {
+  return (
+    <div id={sectionId} className="section-div mb-8">
+      <span className="text-amber-200">Section {sectionNo}</span>
+      <h3 className="text-xl font-medium mb-2">{title}</h3>
+      <div className="text-stone-300">{body}</div>
+    </div>
+  );
+}
+
+// Disable prop validation by setting propTypes to undefined
+SectionBody.propTypes = undefined;
