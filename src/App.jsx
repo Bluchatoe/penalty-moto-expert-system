@@ -6,6 +6,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from "./Root";
+import Law from "./Law";
+import ExpertSystem from "./ExpertSystem";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +20,11 @@ const router = createBrowserRouter([
       },
       {
         path: "law",
-        element: <div>Law</div>,
+        element: <Law />,
       },
       {
         path: "expert-system",
-        element: <div>Expert System</div>,
+        element: <ExpertSystem />,
       },
     ],
   },
