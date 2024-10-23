@@ -32,26 +32,26 @@ export const sectionsList = [
         <p>As used in this Act, the following terms are defined:</p>
         <ol>
           <li>
-            (a) Backrider refers to any person or persons seated at the back of
-            a motorcycle, or a passenger of a motorcycle;
+            Backrider refers to any person or persons seated at the back of a
+            motorcycle, or a passenger of a motorcycle;
           </li>
           <li>
-            (b) Driver refers to any person driving or controlling a motorcycle;
+            Driver refers to any person driving or controlling a motorcycle;
           </li>
           <li>
-            (c) Motorcycle refers to a powered two (2) or three (3) wheeled
-            motor vehicle, including, but not limitted to. Scooters, mopeds, and
+            Motorcycle refers to a powered two (2) or three (3) wheeled motor
+            vehicle, including, but not limitted to. Scooters, mopeds, and
             motorcycles with appendages such as sidecards, tricycles, or trikes.
             This shall include government-owned vehicles;
           </li>
           <li>
-            (d) Owner refers to any person who owns or is the registered owner
-            of a motorcycle. Under this Act, it also refers to any person who
-            has actual control and possession of motorcycle, whether it is
+            Owner refers to any person who owns or is the registered owner of a
+            motorcycle. Under this Act, it also refers to any person who has
+            actual control and possession of motorcycle, whether it is
             registered or not; and
           </li>
           <li>
-            (e) Number plate refers to the regular motor vehicle license plate
+            Number plate refers to the regular motor vehicle license plate
             issued by the Land Transportation Office (LTO) for a motorcycle,
             bearing the standard alphanumeric characters in accordance with
             Republic Act No. 4136, as amended, otherwise known as the &#34;Land

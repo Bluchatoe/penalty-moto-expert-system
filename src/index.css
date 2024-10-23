@@ -53,3 +53,17 @@
   color: rgb(255, 255, 255);
   background: #b86303;
 }
+
+.section-div p {
+  margin-bottom: 16px;
+}
+
+.section-div ol {
+  list-style-type: lower-alpha;
+  padding-left: 30px;
+}
+
+.section-div li {
+  margin-bottom: 16px;
+  padding-left: 8px;
+}
