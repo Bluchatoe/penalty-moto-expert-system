@@ -1,13 +1,3 @@
-import { useEffect } from "react";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-} from "react-scroll";
-
 export default function Law() {
   return (
     <div className="w-full h-screen max-h-screen overflow-y-auto relative">
@@ -205,32 +195,6 @@ function HeroSection() {
 }
 
 function Sections() {
-  useEffect(() => {
-    // Registering the 'begin' event and logging it to the console when triggered.
-    Events.scrollEvent.register("begin", (to, element) => {
-      console.log("begin", to, element);
-    });
-
-    // Registering the 'end' event and logging it to the console when triggered.
-    Events.scrollEvent.register("end", (to, element) => {
-      console.log("end", to, element);
-    });
-
-    // Updating scrollSpy when the component mounts.
-    scrollSpy.update();
-
-    // Returning a cleanup function to remove the registered events when the component unmounts.
-    return () => {
-      Events.scrollEvent.remove("begin");
-      Events.scrollEvent.remove("end");
-    };
-  }, []);
-
-  // Function to handle the activation of a link.
-  const handleSetActive = (to) => {
-    console.log(to);
-  };
-
   return (
     <div className="flex flex-col pb-36">
       {/* Line */}
