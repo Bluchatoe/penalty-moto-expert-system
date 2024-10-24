@@ -59,7 +59,7 @@ export const dialogues = [
     id: "awareNo",
     question: null,
     options: null,
-    penalty: "Penalty: The Buyer OR The Seller will be punished Arresto mayor",
+    penalty: "Penalty: The Buyer OR the Seller will be punished Arresto mayor",
   },
 
   {
@@ -172,10 +172,10 @@ export const dialogues = [
     question: "Did you report it within 3 days since the day it was lost?",
     options: [
       {
-        id: "3daysReportYes",
+        id: "noPenalty",
         text: "Yes",
       },
-      { id: "noPenalty", text: "No" },
+      { id: "3daysReportYes", text: "No" },
     ],
   },
 
@@ -184,7 +184,7 @@ export const dialogues = [
     question: null,
     options: null,
     penalty:
-      "Penalty: Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
+      "Penalty of imprisonment of arresto mayor to prision correccional",
   },
 
   //Registration CATEGORY
