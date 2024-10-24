@@ -52,14 +52,14 @@ export const dialogues = [
     id: "awareYes",
     question: null,
     options: null,
-    penalty: "Both Buyer and Seller shall be punished Prison Mayor",
+    penalty: "Penalty: Both Buyer and Seller shall be punished Prison Mayor",
   },
 
   {
     id: "awareNo",
     question: null,
     options: null,
-    penalty: "The Buyer OR The Seller will be punished Arresto mayor",
+    penalty: "Penalty: The Buyer OR The Seller will be punished Arresto mayor",
   },
 
   {
@@ -79,7 +79,7 @@ export const dialogues = [
     question: null,
     options: null,
     penalty:
-      "Prision Mayor or fine of not less than Fifty Thousand pesos (P50,000.00) but not more than One hundred thousand pesos (P100,000.00)",
+      "Penalty: Prision Mayor or fine of not less than Fifty Thousand pesos (P50,000.00) but not more than One hundred thousand pesos (P100,000.00)",
   },
 
   {
@@ -87,14 +87,14 @@ export const dialogues = [
     question: null,
     options: null,
     penalty:
-      "Fine of not less than Fifty thousand pesos (P50,000.00) but not more than One hundred thousand (P100,000.00) or both",
+      "Penalty: Fine of not less than Fifty thousand pesos (P50,000.00) but not more than One hundred thousand (P100,000.00) or both",
   },
   {
     id: "manipulatedNumber",
     question: null,
     options: null,
     penalty:
-      "Prision Mayor, or Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
+      "Penalty: Prision Mayor, or Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
   },
   {
     id: "lostNumber",
@@ -140,7 +140,7 @@ export const dialogues = [
     question: null,
     options: null,
     penalty:
-      "Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
+      "Penalty: Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
   },
 
   {
@@ -184,7 +184,7 @@ export const dialogues = [
     question: null,
     options: null,
     penalty:
-      "Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
+      "Penalty: Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
   },
 
   //Registration CATEGORY
@@ -200,6 +200,46 @@ export const dialogues = [
     ],
   },
 
+  {
+    id: "purchase",
+    question:
+      "Is your motorcycle registered within 5 days since purchase?",
+    options: [
+      {
+        id: "noPenalty",
+        text: "Yes",
+      },
+      {
+        id: "disporeportNo",
+        text: "No",
+      },
+    ],
+  },
+
+  {
+    id: "disposition",
+    question:
+      "Did you report any sale or disposition of the motorcycle?",
+    options: [
+      {
+        id: "noPenalty",
+        text: "Yes",
+      },
+      {
+        id: "disporeportNo",
+        text: "No",
+      },
+    ],
+  },
+
+  {
+    id: "disporeportNo",
+    question: null,
+    options: null,
+    penalty: "Penalty: Prision Mayor or fine of not less than Fifty Thousand pesos (P50,000.00) but not more than One hundred thousand pesos (P100,000.00)"
+  },
+
+
   //LAW ENFORCER CATEGORY
   {
     id: "lawEnforcerCat",
@@ -209,9 +249,67 @@ export const dialogues = [
         id: "surrenderedYes",
         text: "Yes",
       },
-      { id: "surrenderedNo", text: "No" },
+      {
+        id: "surrenderedNo",
+        text: "No"
+      },
     ],
   },
+  {
+    id: "surrenderedYes",
+    question: "Is there a damage to the motorcycle?",
+    options: [{
+      id: "damageYes",
+      text: "Yes",
+    },
+    {
+      id: "noDamage", text: "no",
+    },
+    ],
+  },
+  {
+    id: "noDamage",
+    question: "Is the motorcycle lost?",
+    options: [{
+      id: "yesLost",
+      text: "Yes",
+    },
+    {
+      id: "noPenalty", text: "no",
+    },
+    ],
+  },
+  {
+    id: "damagedNo",
+    question: null,
+    option: null,
+    penalty: "No Penalty",
+  },
+  {
+    id: "surrenderedYes",
+    question: null,
+    option: null,
+    penalty: "No Penalty",
+  },
+  {
+    id: "surrenderedNo",
+    question: null,
+    option: null,
+    penalty: "Penalty: Prision Correccional",
+  },
+  {
+    id: "damageYes",
+    question: null,
+    option: null,
+    penalty: "Penalty: Law enforcer is monetarily liable for the cost of repairs for the damage caused to the motorcycle",
+  },
+  {
+    id: "yesLost",
+    question: null,
+    option: null,
+    penalty: "Penalty: Law enforcer is monetarily liable for the full worth of the motorcycle lost",
+  },
+
 
   //COMMISSION OF CRIME
   {
@@ -225,7 +323,103 @@ export const dialogues = [
       { id: "graveFelonyNo", text: "No" },
     ],
   },
+  {
+    id: "graveFelonyYes",
+    question: "Is the motorcycle used seized?",
+    options: [{
+      id: "seizedGraveYes",
+      text: "Yes",
+    },
+    {
+      id: "seizedGraveNo",
+      text: "No",
+    }],
+  },
+  {
+    id: "seizedGraveYes",
+    question: null,
+    options: null,
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+  },
+  {
+    id: "seizedGraveNo",
+    question: null,
+    options: null,
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+  },
+
+  {
+    id: "graveFelonyNo",
+    question: "Is the motorcycle used in a crime under Less Grave Felony or Light Felony?",
+    options: [
+      {
+        id: "lessGraveYes",
+        text: "Yes",
+      },
+      { id: "lessGraveNo", text: "No" },
+    ],
+  },
+  {
+    id: "lessGraveYes",
+    question: "Is the motorcycle used seized?",
+    options: [{
+      id: "seizedLessYes",
+      text: "Yes",
+    },
+    {
+      id: "seizedLessNo",
+      text: "No",
+    }],
+  },
+  {
+    id: "seizedLessYes",
+    question: null,
+    options: null,
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+  },
+  {
+    id: "seizedLessNo",
+    question: null,
+    options: null,
+    penalty: "Penalty: Prision correccional to prision mayor"
+  },
+  {
+    id: "lessGraveNo",
+    question: "Is the motorcycle used unlawfully which caused death or physical injuries?",
+    options: [
+      {
+        id: "causedYes",
+        text: "Yes",
+      },
+      { id: "noPenalty", text: "No" },
+    ],
+  },
+  {
+    id: "causedYes",
+    question: "Is the motorcycle used seized?",
+    options: [{
+      id: "seizedCauseYes",
+      text: "Yes",
+    },
+    {
+      id: "seizedCauseNo",
+      text: "No",
+    }],
+  },
+  {
+    id: "seizedCauseYes",
+    question: null,
+    options: null,
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+  },
+  {
+    id: "seizedCauseNo",
+    question: null,
+    options: null,
+    penalty: "Penalty: Reclusion Perpetua"
+  },
 
   //   NO PENALTY DIALOGUE
   { id: "noPenalty", question: null, options: null, penalty: "No Penalty" },
+
 ];
