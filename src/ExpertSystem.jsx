@@ -57,19 +57,74 @@ function DialogueSystem() {
   return (
     <div className="dialogue-system flex flex-col gap-4">
       {/* Render history */}
-      <div className="dialogue-history flex flex-col gap-4">
-        {dialogueHistory.map((dialogue, index) => (
-          <div key={index} className="dialogue-item">
-            <p>{dialogue.question}</p>
-            <p className="selected-option">
-              Selected: {dialogue.selectedOption}
-            </p>
+      {dialogueHistory.length !== 0 && (
+        <div className="dialogue-history flex flex-col bg-stone-800 border border-stone-400/10">
+          <div className="flex items-center gap-2 px-2 py-2">
+            <span>
+              <ClockIcon />
+            </span>
+            <h3 className="text-lg">Dialogue History</h3>
+
+            <button
+              onClick={() => {
+                setCurrentDialogue("start");
+                setDialogueHistory([]);
+                setIsThereAVerdict(false);
+              }}
+              className="ml-auto px-4 border border-stone-400 text-sm py-1 text-stone-300 hover:bg-amber-600 hover:text-white"
+            >
+              Restart
+            </button>
           </div>
-        ))}
-      </div>
+
+          <div className="flex flex-col bg-stone-900 py-5">
+            {dialogueHistory.map((dialogue, index) => (
+              <div key={index} className="dialogue-item px-4    relative">
+                {index !== 0 && (
+                  <div className=" h-px my-4 bg-stone-400/40"></div>
+                )}
+                <div className="flex items-start gap-4">
+                  <div className="h-10 aspect-square bg-amber-300/90 flex justify-center items-center text-stone-800 font-bold text-xl">
+                    {index + 1}
+                  </div>
+
+                  <div>
+                    <div className="mb-2">
+                      <span className="text-sm text-amber-500/75">
+                        Question
+                      </span>
+                      <p className="text-stone-300">{dialogue.question}</p>
+                    </div>
+                    <p className="selected-option flex items-center">
+                      <span className="mr-4 text-sm bg-amber-600/20 pl-1 pr-2 py-1 border-r border-amber-400 flex items-center text-stone-200">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="size-5 mr-1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                          />
+                        </svg>
+                        Selected
+                      </span>
+                      {dialogue.selectedOption}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Render current dialogue */}
-      {activeDialogue && (
+      {activeDialogue.question !== null && (
         <DialogueContainer
           activeDialogue={activeDialogue}
           handleOptionSelect={handleOptionSelect}
@@ -99,12 +154,20 @@ function VerdictComponent({
   setIsThereAVerdict,
 }) {
   return (
-    <div>
-      {/* Penalty Div */}
-      <div>{children}</div>
+    <div className="active-dialogue mt-4 bg-stone-800 border border-stone-400/10">
+      <div className="flex items-start gap-4 mb-1 p-4">
+        <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
+          <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
+        </div>
+        <div>
+          <h4 className="text-amber-300/80 text-sm">MotoGuide's Verdict</h4>
+          <p> {children}</p>
+        </div>
+      </div>
 
-      <div>
+      <div className="options flex flex-col gap-2 bg-stone-900 p-4 ">
         <button
+          className="hover:bg-amber-600 hover:text-white text-amber-500 border border-amber-600/60 text-lg py-3"
           onClick={() => {
             setCurrentDialogue("start");
             setDialogueHistory([]);
@@ -126,7 +189,7 @@ function DialogueContainer({ activeDialogue, handleOptionSelect }) {
         {/* Dialogue Header */}
         <div className="mb-8">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-400 to-red-500 bg-clip-text text-transparent mb-2">
-            Hello! I'm MotoGuide,
+            Hello! I&apos;m MotoGuide,
           </h2>
           <p className="text-xl text-stone-300">
             Your Expert System for Understanding Penalties Under RA 11235
@@ -245,12 +308,21 @@ function DialogueContainer({ activeDialogue, handleOptionSelect }) {
   }
 
   return (
-    <div className="active-dialogue">
-      <p>{activeDialogue.question}</p>
-      <div className="options flex flex-col gap-2">
+    <div className="active-dialogue mt-4 bg-stone-800 border border-stone-400/10">
+      <div className="flex items-start gap-4 mb-1 p-4">
+        <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
+          <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
+        </div>
+        <div>
+          <h4 className="text-amber-300/80 text-sm">MotoGuide</h4>
+          <p> {activeDialogue.question}</p>
+        </div>
+      </div>
+
+      <div className="options flex flex-col gap-2 bg-stone-900 p-4 ">
         {activeDialogue.options?.map((option) => (
           <button
-            className="bg-amber-600"
+            className="hover:bg-amber-600 hover:text-white text-amber-500 border border-amber-600/60 text-lg py-3"
             key={option.id}
             onClick={() => handleOptionSelect(option.id, option.text)}
           >
@@ -259,5 +331,24 @@ function DialogueContainer({ activeDialogue, handleOptionSelect }) {
         ))}
       </div>
     </div>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+      />
+    </svg>
   );
 }
