@@ -263,9 +263,33 @@ export const dialogues = [
       text: "Yes",
     },
     {
-      id: "noDamage", text: "no",
+      id: "noDamage", text: "No",
     },
     ],
+  },
+  {
+    id: "surrenderedNo",
+    question: "Is there a damage to the motorcycle?",
+    options: [{
+      id: "reportdamageYes",
+      text: "Yes",
+    },
+    {
+      id: "reportdamageNo", text: "No",
+    },
+    ],
+  },
+  {
+    id: "reportdamageYes",
+    question: null,
+    text: null,
+    penalty: "Penalty: Prision Correccional and the Law Enforcer is monetarily liable for the cost of repairs for the damage caused to the motorcycle",
+  },
+  {
+    id: "reportdamageNo",
+    question: null,
+    text: null,
+    penalty: "Penalty: Prision Correccional",
   },
   {
     id: "noDamage",
@@ -275,7 +299,7 @@ export const dialogues = [
       text: "Yes",
     },
     {
-      id: "noPenalty", text: "no",
+      id: "noPenalty", text: "No",
     },
     ],
   },
@@ -291,12 +315,12 @@ export const dialogues = [
     option: null,
     penalty: "No Penalty",
   },
-  {
-    id: "surrenderedNo",
-    question: null,
-    option: null,
-    penalty: "Penalty: Prision Correccional",
-  },
+  // {
+  //   id: "surrenderedNo",
+  //   question: null,
+  //   option: null,
+  //   penalty: "Penalty: Prision Correccional",
+  // },
   {
     id: "damageYes",
     question: null,
