@@ -154,18 +154,23 @@ function VerdictComponent({
   setIsThereAVerdict,
 }) {
   return (
-    <div className="active-dialogue mt-4 bg-stone-800 border border-stone-400/10">
-      <div className="flex items-start gap-4 mb-1 p-4">
-        <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
-          <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
-        </div>
-        <div>
-          <h4 className="text-amber-300/80 text-sm">MotoGuide's Verdict</h4>
-          <p> {children}</p>
+    <>
+      <div className="active-dialogue mt-4 bg-stone-800 border border-stone-400/10">
+        <div className="flex items-start gap-4 mb-1 p-4">
+          <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
+            <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
+          </div>
+          <div>
+            <h4 className="text-amber-300/80 text-sm">
+              MotoGuide&apos;s Verdict
+            </h4>
+            <p> {children}</p>
+          </div>
         </div>
       </div>
+      <div className="options flex flex-col gap-2  p-4 ">
+        <p className="text-center mb-2">You reached the end of the Dialogue.</p>
 
-      <div className="options flex flex-col gap-2 bg-stone-900 p-4 ">
         <button
           className="hover:bg-amber-600 hover:text-white text-amber-500 border border-amber-600/60 text-lg py-3"
           onClick={() => {
@@ -177,7 +182,7 @@ function VerdictComponent({
           Restart
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
