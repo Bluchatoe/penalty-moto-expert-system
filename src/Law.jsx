@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import { sectionsList } from "./sections";
+import { useSearchParams } from "react-router-dom";
 
 export default function Law() {
+  const [searchParams] = useSearchParams();
+  const sectionId = searchParams.get("id") || "";
+
+  useEffect(() => {
+    if (sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div className="w-full h-full max-h-full overflow-y-auto relative">
       <div className="max-w-7xl  mx-auto flex flex-col py-8 gap-4">

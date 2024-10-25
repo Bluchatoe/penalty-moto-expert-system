@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { dialogues } from "./dialogues";
+import { sectionsList } from "./sections";
 
 export default function ExpertSystem() {
   return (
@@ -138,7 +139,11 @@ function DialogueSystem() {
           setDialogueHistory={setDialogueHistory}
           setIsThereAVerdict={setIsThereAVerdict}
         >
-          {activeDialogue.penalty}
+          <p>{activeDialogue.penalty}</p>
+
+          {activeDialogue.penalty.toLowerCase() !== "no penalty" && (
+            <ReferenceLink sectionId={activeDialogue.reference} />
+          )}
         </VerdictComponent>
       )}
 
@@ -160,11 +165,11 @@ function VerdictComponent({
           <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
             <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
           </div>
-          <div>
+          <div className="flex flex-col items-start">
             <h4 className="text-amber-300/80 text-sm">
               MotoGuide&apos;s Verdict
             </h4>
-            <p> {children}</p>
+            {children}
           </div>
         </div>
       </div>
@@ -355,5 +360,43 @@ function ClockIcon() {
         d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
       />
     </svg>
+  );
+}
+
+function ReferenceLink({ sectionId }) {
+  const handleClick = () => {
+    // Programmatically navigate to the law page with the sectionNum as a query parameter
+    window.open(`/law?id=${sectionId}`, "_blank");
+  };
+
+  return (
+    <div className="mt-4 p-2 pr-4 bg-amber-600/20 border-l border-amber-300 flex items-start gap-2">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="size-5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+          />
+        </svg>
+      </div>
+      <div>
+        <h3 className="text-sm text-amber-300">Reference</h3>
+        <button
+          onClick={handleClick}
+          className="italic underline text-stone-200 hover:text-white"
+        >
+          Section {sectionId?.match(/\d+/)[0]} -{" "}
+          {sectionsList.find((item) => item.id === sectionId)?.title}
+        </button>
+      </div>
+    </div>
   );
 }
