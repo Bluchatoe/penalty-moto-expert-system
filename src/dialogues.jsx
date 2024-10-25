@@ -19,7 +19,7 @@ export const dialogues = [
         id: "driveWithoutNumber",
         text: "Driving without a number plate or readable number plate.",
       },
-      { id: "lostNumber", text: "Lost Number Plate" },
+      { id: "lostNumber", text: "Lost/Damaged Number Plate" },
       {
         id: "manipulatedNumber",
         text: "Erased, Tampered, Forged, Imitated, Covered or Concelead Number Plate",
@@ -103,7 +103,7 @@ export const dialogues = [
     },
   {
     id: "lostNumber",
-    question: "Did it lost the Number Plate within your capacity?",
+    question: "Is the number plate lost?",
     options: [
       {
         id: "lostYes",
@@ -146,7 +146,7 @@ export const dialogues = [
     options: null,
     penalty:
       "Penalty: Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
-    reference: "Section 12",
+    reference: "Section 11",
     },
 
   {
