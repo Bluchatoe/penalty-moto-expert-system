@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 
 export default function Law() {
   const [searchParams] = useSearchParams();
-  const sectionId = searchParams.get("id") || "";
+  const sectionId = searchParams.get("id") || null;
 
   useEffect(() => {
     if (sectionId) {

@@ -142,7 +142,11 @@ function DialogueSystem() {
           <p>{activeDialogue.penalty}</p>
 
           {activeDialogue.penalty.toLowerCase() !== "no penalty" && (
-            <ReferenceLink sectionId={activeDialogue.reference} />
+            <ReferenceLink
+              sectionId={activeDialogue.reference
+                .replace(" ", "")
+                .toLowerCase()}
+            />
           )}
         </VerdictComponent>
       )}
@@ -391,7 +395,7 @@ function ReferenceLink({ sectionId }) {
         <h3 className="text-sm text-amber-300">Reference</h3>
         <button
           onClick={handleClick}
-          className="italic underline text-stone-200 hover:text-white"
+          className="italic underline text-stone-200 hover:text-white text-start"
         >
           Section {sectionId?.match(/\d+/)[0]} -{" "}
           {sectionsList.find((item) => item.id === sectionId)?.title}
