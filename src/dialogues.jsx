@@ -53,6 +53,7 @@ export const dialogues = [
     question: null,
     options: null,
     penalty: "Penalty: Both Buyer and Seller shall be punished Prison Mayor",
+    reference: "Section 12",
   },
 
   {
@@ -60,6 +61,7 @@ export const dialogues = [
     question: null,
     options: null,
     penalty: "Penalty: The Buyer OR the Seller will be punished Arresto mayor",
+    reference: "Section 12",
   },
 
   {
@@ -80,6 +82,7 @@ export const dialogues = [
     options: null,
     penalty:
       "Penalty: Prision Mayor or fine of not less than Fifty Thousand pesos (P50,000.00) but not more than One hundred thousand pesos (P100,000.00)",
+    reference: "Section 13",
   },
 
   {
@@ -88,14 +91,16 @@ export const dialogues = [
     options: null,
     penalty:
       "Penalty: Fine of not less than Fifty thousand pesos (P50,000.00) but not more than One hundred thousand (P100,000.00) or both",
-  },
+    reference: "Section 7",
+    },
   {
     id: "manipulatedNumber",
     question: null,
     options: null,
     penalty:
-      "Penalty: Prision Mayor, or Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
-  },
+      "Penalty: Prision Mayor, or Fifty thousand pesos (P50,000.00) but not more than One hundred thousand pesos (P100,000.00), or both.",
+    reference: "Section 12",
+    },
   {
     id: "lostNumber",
     question: "Did it lost the Number Plate within your capacity?",
@@ -141,7 +146,8 @@ export const dialogues = [
     options: null,
     penalty:
       "Penalty: Twenty thousand pesos (P20,000.00) but not more than Fifty thousand pesos (P50,000.00).",
-  },
+    reference: "Section 12",
+    },
 
   {
     id: "damagedNo",
@@ -185,7 +191,8 @@ export const dialogues = [
     options: null,
     penalty:
       "Penalty of imprisonment of arresto mayor to prision correccional",
-  },
+    reference: "Section 12",
+    },
 
   //Registration CATEGORY
   {
@@ -236,7 +243,8 @@ export const dialogues = [
     id: "disporeportNo",
     question: null,
     options: null,
-    penalty: "Penalty: Prision Mayor or fine of not less than Fifty Thousand pesos (P50,000.00) but not more than One hundred thousand pesos (P100,000.00)"
+    penalty: "Penalty: Imprisonment or Arresto Mayor to Prision Correccional or fine of not less than Fifty Thousand pesos (P50,000.00) but not more than One hundred thousand pesos (P100,000.00)",
+    reference: "Section 4",
   },
 
 
@@ -284,12 +292,14 @@ export const dialogues = [
     question: null,
     text: null,
     penalty: "Penalty: Prision Correccional and the Law Enforcer is monetarily liable for the cost of repairs for the damage caused to the motorcycle",
+    reference: "Section 8",
   },
   {
     id: "reportdamageNo",
     question: null,
     text: null,
     penalty: "Penalty: Prision Correccional",
+    reference: "Section 8",
   },
   {
     id: "noDamage",
@@ -326,12 +336,14 @@ export const dialogues = [
     question: null,
     option: null,
     penalty: "Penalty: Law enforcer is monetarily liable for the cost of repairs for the damage caused to the motorcycle",
+    reference: "Section 8",
   },
   {
     id: "yesLost",
     question: null,
     option: null,
     penalty: "Penalty: Law enforcer is monetarily liable for the full worth of the motorcycle lost",
+    reference: "Section 8",
   },
 
 
@@ -363,13 +375,15 @@ export const dialogues = [
     id: "seizedGraveYes",
     question: null,
     options: null,
-    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua",
+    reference: "Section 9",
   },
   {
     id: "seizedGraveNo",
     question: null,
     options: null,
-    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua",
+    reference: "Section 9",
   },
 
   {
@@ -399,13 +413,15 @@ export const dialogues = [
     id: "seizedLessYes",
     question: null,
     options: null,
-    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua",
+    reference: "Section 9",
   },
   {
     id: "seizedLessNo",
     question: null,
     options: null,
-    penalty: "Penalty: Prision correccional to prision mayor"
+    penalty: "Penalty: Prision correccional to prision mayor",
+    reference: "Section 9",
   },
   {
     id: "lessGraveNo",
@@ -434,13 +450,15 @@ export const dialogues = [
     id: "seizedCauseYes",
     question: null,
     options: null,
-    penalty: "Penalty: Reclusion temporal to reclusion perpetua"
+    penalty: "Penalty: Reclusion temporal to reclusion perpetua",
+    reference: "Section 9",
   },
   {
     id: "seizedCauseNo",
     question: null,
     options: null,
-    penalty: "Penalty: Reclusion Perpetua"
+    penalty: "Penalty: Reclusion Perpetua",
+    reference: "Section 9",
   },
 
   //   NO PENALTY DIALOGUE
