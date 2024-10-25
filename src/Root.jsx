@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Body from "./Body";
+import LogoPicture from "./assets/helmet_amber.png";
 
 export default function Root() {
   return (
@@ -19,8 +20,8 @@ function Header() {
           {/* Img */}
           <div className="max-h-10 max-w-10">
             <img
-              src="/src/assets/helmet_amber.png"
-              alt=""
+              src={LogoPicture}
+              alt="PenaltyMoto Logo"
               className="object-cover"
             />
           </div>
@@ -39,7 +40,7 @@ function Header() {
           <ul className="h-full flex justify-center items-center gap-6">
             <li>
               <NavLink
-                to="/expert-system"
+                to="./expert-system"
                 className={({ isActive }) =>
                   isActive
                     ? "text-amber-500 font-medium hover:text-amber-700 flex items-center gap-2"
@@ -59,7 +60,7 @@ function Header() {
             </li>
             <li>
               <NavLink
-                to="/law"
+                to="./law"
                 className={({ isActive }) =>
                   isActive
                     ? "text-amber-500 font-medium hover:text-amber-700 flex items-center gap-2"

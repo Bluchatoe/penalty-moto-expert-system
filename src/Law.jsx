@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { sectionsList } from "./sections";
 import { useSearchParams } from "react-router-dom";
+import CongressLogo from "./assets/house_of_representitive.png";
+import MotorCyclesPicture from "./assets/motocycles.jpg";
+import RoyalBorder from "./assets/royal-line-gold.png";
 
 export default function Law() {
   const [searchParams] = useSearchParams();
@@ -44,10 +47,7 @@ function HeroSection() {
 
         <div className="flex items-center gap-4">
           <div className="max-h-20 max-w-20">
-            <img
-              src="/src/assets/house_of_representitive.png"
-              alt="logo of congress"
-            />
+            <img src={CongressLogo} alt="logo of congress" />
           </div>
 
           <div>
@@ -96,7 +96,7 @@ function HeroSection() {
         <div className="bg-stone-800 flex flex-col justify-between p-8 min-h-80 relative border border-amber-200/10">
           {/* The background image */}
           <img
-            src="/src/assets/motocycles.jpg"
+            src={MotorCyclesPicture}
             alt="background"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
@@ -226,8 +226,8 @@ function Sections() {
       {/* Line */}
       <div className="w-full max-h-1 my-10">
         <img
-          src="/src/assets/royal-line-gold.png"
-          alt=""
+          src={RoyalBorder}
+          alt="Royal Border"
           className="mx-auto h-16 opacity-40"
         />
       </div>

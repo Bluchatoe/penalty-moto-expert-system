@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { dialogues } from "./dialogues";
 import { sectionsList } from "./sections";
+import LogoWhite from "./assets/helmet_white.png";
 
 export default function ExpertSystem() {
   return (
@@ -167,7 +168,7 @@ function VerdictComponent({
       <div className="active-dialogue mt-4 bg-stone-800 border border-stone-400/10">
         <div className="flex items-start gap-4 mb-1 p-4">
           <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
-            <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
+            <img src={LogoWhite} alt="MotoGuideAvatar" />
           </div>
           <div className="flex flex-col items-start">
             <h4 className="text-amber-300/80 text-sm">
@@ -212,7 +213,7 @@ function DialogueContainer({ activeDialogue, handleOptionSelect }) {
 
         <div className="flex items-start gap-4 mb-1">
           <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
-            <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
+            <img src={LogoWhite} alt="MotoGuideAvatar" />
           </div>
           <div>
             <h4 className="text-amber-300/80 text-sm">MotoGuide</h4>
@@ -325,7 +326,7 @@ function DialogueContainer({ activeDialogue, handleOptionSelect }) {
     <div className="active-dialogue mt-4 bg-stone-800 border border-stone-400/10">
       <div className="flex items-start gap-4 mb-1 p-4">
         <div className="h-11 aspect-square bg-amber-600 p-2 outline outline-1 outline-offset-2 outline-amber-200/30">
-          <img src="/src/assets/helmet_white.png" alt="MotoGuideAvatar" />
+          <img src={LogoWhite} alt="MotoGuideAvatar" />
         </div>
         <div>
           <h4 className="text-amber-300/80 text-sm">MotoGuide</h4>
@@ -370,7 +371,7 @@ function ClockIcon() {
 function ReferenceLink({ sectionId }) {
   const handleClick = () => {
     // Programmatically navigate to the law page with the sectionNum as a query parameter
-    window.open(`/law?id=${sectionId}`, "_blank");
+    window.open(`/penalty-moto/law?id=${sectionId}`, "_blank");
   };
 
   return (
