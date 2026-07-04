@@ -12,11 +12,11 @@ import ExpertSystem from "./ExpertSystem";
 const router = createBrowserRouter(
   [
     {
-      path: "/penalty-moto",
+      path: "/",
       element: <Root />,
       children: [
         {
-          path: "/penalty-moto",
+          path: "/",
           element: <Navigate to="expert-system" replace />,
         },
         {
