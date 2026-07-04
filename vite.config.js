@@ -5,11 +5,4 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/penalty-moto-expert-system/", // Set your base path here
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: "[name][extname]", // Keeps original filenames without hashes
-      },
-    },
-  },
 });
