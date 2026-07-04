@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/penalty-moto/", // Set your base path here
+  base: "/penalty-moto-expert-system/", // Set your base path here
   build: {
     rollupOptions: {
       output: {
